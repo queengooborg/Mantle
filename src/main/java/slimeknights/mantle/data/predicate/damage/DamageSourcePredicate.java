@@ -25,6 +25,16 @@ public interface DamageSourcePredicate extends IJsonPredicate<DamageSource> {
   /** Damage that protection works against */
   DamageSourcePredicate CAN_PROTECT = simple(source -> !source.is(DamageTypeTags.BYPASSES_ENCHANTMENTS) && !source.is(DamageTypeTags.BYPASSES_INVULNERABILITY));
 
+  /* Vanilla getters */
+  DamageSourcePredicate PROJECTILE = simple(source -> source.is(DamageTypeTags.IS_PROJECTILE));
+  DamageSourcePredicate EXPLOSION = simple(source -> source.is(DamageTypeTags.IS_EXPLOSION));
+  DamageSourcePredicate BYPASS_ARMOR = simple(source -> source.is(DamageTypeTags.BYPASSES_ARMOR));
+  DamageSourcePredicate DAMAGE_HELMET = simple(source -> source.is(DamageTypeTags.DAMAGES_HELMET));
+  DamageSourcePredicate BYPASS_INVULNERABLE = simple(source -> source.is(DamageTypeTags.BYPASSES_INVULNERABILITY));
+  DamageSourcePredicate BYPASS_ENCHANTMENTS = simple(source -> source.is(DamageTypeTags.BYPASSES_ENCHANTMENTS));
+  DamageSourcePredicate FIRE = simple(source -> source.is(DamageTypeTags.IS_FIRE));
+  DamageSourcePredicate FALL = simple(source -> source.is(DamageTypeTags.IS_FALL));
+
   @Override
   default IJsonPredicate<DamageSource> inverted() {
     return LOADER.invert(this);

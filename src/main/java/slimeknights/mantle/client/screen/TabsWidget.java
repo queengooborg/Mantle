@@ -154,14 +154,12 @@ public class TabsWidget extends Widget {
     }
   }
 
-  /** Based on {@link net.minecraft.client.gui.screens.inventory.AbstractContainerScreen#renderFloatingItem(net.minecraft.world.item.ItemStack, int, int, java.lang.String)} */
+  /** Based on {@link net.minecraft.client.gui.screens.inventory.AbstractContainerScreen#renderFloatingItem(PoseStack, ItemStack, int, int, String)}  */
   private void drawItemStack(ItemStack stack, int x, int y) {
     PoseStack poses = RenderSystem.getModelViewStack();
     poses.translate(0, 0, 32f);
     RenderSystem.applyModelViewMatrix();
     ItemRenderer itemRender = Minecraft.getInstance().getItemRenderer();
-    itemRender.blitOffset = 200.0F;
-    itemRender.renderAndDecorateItem(stack, x, y);
-    itemRender.blitOffset = 0.0F;
+    itemRender.renderAndDecorateItem(poses, stack, x, y);
   }
 }

@@ -36,7 +36,7 @@ public class ArrowButton extends Button {
     this(null, x, y, arrowType, color, hoverColor, iPressable);
   }
 
-  public void renderButton(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks, @Nullable BookData bookData) {
+  public void render(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks, @Nullable BookData bookData) {
     Minecraft minecraft = Minecraft.getInstance();
     if (bookData != null) {
       RenderSystem.setShaderTexture(0, bookData.appearance.getBookTexture());
@@ -54,12 +54,12 @@ public class ArrowButton extends Button {
 
     RenderSystem.setShaderColor(r, g, b, 1f);
     blit(matrixStack, this.getX(), this.getY(), this.width, this.height, this.arrowType.x, this.arrowType.y, this.width, this.height, 512, 512);
-    this.renderBg(matrixStack, minecraft, mouseX, mouseY);
+//    this.renderBg(matrixStack, minecraft, mouseX, mouseY);
   }
 
   @Override
-  public void renderButton(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks) {
-    renderButton(matrixStack, mouseX, mouseY, partialTicks, bookData);
+  public void render(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks) {
+    render(matrixStack, mouseX, mouseY, partialTicks, bookData);
   }
 
   public enum ArrowType {

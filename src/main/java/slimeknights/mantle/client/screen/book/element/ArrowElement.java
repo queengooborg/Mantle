@@ -17,7 +17,7 @@ public class ArrowElement extends ButtonElement {
 
   @Override
   public void draw(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks, Font fontRenderer) {
-    this.button.renderButton(matrixStack, mouseX, mouseY, partialTicks, parent.book);
+    this.button.render(matrixStack, mouseX, mouseY, partialTicks, parent.book);
   }
 
   @Override

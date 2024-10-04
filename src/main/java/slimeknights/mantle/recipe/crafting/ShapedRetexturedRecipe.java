@@ -35,7 +35,7 @@ public class ShapedRetexturedRecipe extends ShapedRecipe {
    * @param matchAll   If true, all inputs must match for the recipe to match
    */
   protected ShapedRetexturedRecipe(ShapedRecipe orig, Ingredient texture, boolean matchAll) {
-    super(orig.getId(), orig.getGroup(), orig.category(), orig.getWidth(), orig.getHeight(), orig.getIngredients(), orig.getResultItem());
+    super(orig.getId(), orig.getGroup(), orig.category(), orig.getWidth(), orig.getHeight(), orig.getIngredients(), orig.result);
     this.texture = texture;
     this.matchAll = matchAll;
   }

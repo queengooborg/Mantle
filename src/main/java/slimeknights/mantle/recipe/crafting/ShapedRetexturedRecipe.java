@@ -2,6 +2,7 @@ package slimeknights.mantle.recipe.crafting;
 
 import com.google.gson.JsonObject;
 import lombok.Getter;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.CraftingContainer;
@@ -44,13 +45,13 @@ public class ShapedRetexturedRecipe extends ShapedRecipe {
    * @param texture  Texture to use
    * @return  Output with texture. Will be blank if the input is not a block
    */
-  public ItemStack getRecipeOutput(Item texture) {
-    return RetexturedBlockItem.setTexture(getResultItem().copy(), Block.byItem(texture));
+  public ItemStack getRecipeOutput(Item texture, RegistryAccess access) {
+    return RetexturedBlockItem.setTexture(getResultItem(access).copy(), Block.byItem(texture));
   }
 
   @Override
-  public ItemStack assemble(CraftingContainer craftMatrix) {
-    ItemStack result = super.assemble(craftMatrix);
+  public ItemStack assemble(CraftingContainer craftMatrix, RegistryAccess access) {
+    ItemStack result = super.assemble(craftMatrix, access);
     Block currentTexture = null;
     for (int i = 0; i < craftMatrix.getContainerSize(); i++) {
       ItemStack stack = craftMatrix.getItem(i);

@@ -140,7 +140,7 @@ public class BlockRegistryAdapter extends EnumRegistryAdapter<Block> {
     RotatedPillarBlock wood = register(new StrippableLogBlock(getHolder(BuiltInRegistries.BLOCK, strippedWood), behaviorCreator.apply(WoodVariant.WOOD).strength(2.0f)), name + "_wood");
 
     // doors
-    DoorBlock door = register(new WoodenDoorBlock(behaviorCreator.apply(WoodVariant.PLANKS).strength(3.0F).noOcclusion()), name + "_door");
+    DoorBlock door = register(new WoodenDoorBlock(behaviorCreator.apply(WoodVariant.PLANKS).strength(3.0F).noOcclusion(), woodSetType), name + "_door");
     TrapDoorBlock trapdoor = register(new TrapDoorBlock(behaviorCreator.apply(WoodVariant.PLANKS).strength(3.0F).noOcclusion().isValidSpawn(Blocks::never), woodSetType), name + "_trapdoor");
     FenceGateBlock fenceGate = register(new FenceGateBlock(planksProps, SoundEvents.FENCE_GATE_CLOSE, SoundEvents.FENCE_GATE_OPEN), name + "_fence_gate");
     // redstone

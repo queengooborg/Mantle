@@ -249,7 +249,7 @@ public class BlockDeferredRegister extends DeferredRegisterWrapper<Block> {
     ItemObject<RotatedPillarBlock> wood = register(name + "_wood", () -> new StrippableLogBlock(strippedWood, behaviorCreator.apply(WoodBlockObject.WoodVariant.WOOD).strength(2.0f)), burnable300);
 
     // doors
-    ItemObject<DoorBlock> door = register(name + "_door", () -> new WoodenDoorBlock(behaviorCreator.apply(WoodBlockObject.WoodVariant.PLANKS).strength(3.0F).noOcclusion()), burnableTallItem);
+    ItemObject<DoorBlock> door = register(name + "_door", () -> new WoodenDoorBlock(behaviorCreator.apply(WoodBlockObject.WoodVariant.PLANKS).strength(3.0F).noOcclusion(), woodSetType), burnableTallItem);
     ItemObject<TrapDoorBlock> trapdoor = register(name + "_trapdoor", () -> new TrapDoorBlock(behaviorCreator.apply(WoodBlockObject.WoodVariant.PLANKS).strength(3.0F).noOcclusion().isValidSpawn(Blocks::never), woodSetType), burnable300);
     ItemObject<FenceGateBlock> fenceGate = register(name + "_fence_gate", () -> new FenceGateBlock(planksProps, SoundEvents.FENCE_GATE_CLOSE, SoundEvents.FENCE_GATE_OPEN), burnable300);
     // redstone

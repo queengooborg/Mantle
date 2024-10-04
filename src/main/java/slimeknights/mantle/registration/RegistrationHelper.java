@@ -6,6 +6,7 @@ import net.minecraft.core.DefaultedRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.registries.MissingMappingsEvent;
 import net.minecraftforge.registries.MissingMappingsEvent.Mapping;
@@ -67,10 +68,11 @@ public class RegistrationHelper {
   }
 
   /** Registers a wood type to be injected into the atlas, should be called before client setup */
-  public static void registerWoodType(WoodType type) {
+  public static void registerWoodType(WoodType type, BlockSetType setType) {
     synchronized (WOOD_TYPES) {
       WOOD_TYPES.add(type);
       WoodType.register(type);
+      BlockSetType.register(setType);
     }
   }
 
